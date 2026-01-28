@@ -451,16 +451,24 @@ main {
 
 .category-card {
   background: #f0f2f5;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 55%) minmax(0, 45%);
+  grid-template-rows: auto auto;
   align-items: center;
-  justify-content: space-between;
-  gap: 32px;
+  gap: 24px 32px;
   position: relative;
   overflow: hidden;
 }
 
 .category-content {
-  max-width: 55%;
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.category-btn {
+  grid-column: 1;
+  grid-row: 2;
+  width: fit-content;
 }
 
 .category-label {
@@ -484,7 +492,8 @@ main {
 }
 
 .category-visual {
-  flex: 1;
+  grid-column: 2;
+  grid-row: 1 / span 2;
   display: flex;
   justify-content: flex-end;
   position: relative;
@@ -626,7 +635,7 @@ main {
 #preloader {
   position: fixed;
   inset: 0;
-  background: linear-gradient(135deg, #b50022 0%, #e0262a 45%, #ff3b30 100%);
+  background: transparent;
   display: grid;
   place-items: center;
   z-index: 2000;
@@ -643,16 +652,18 @@ main {
   position: absolute;
   inset: 0;
   display: flex;
+  z-index: 1;
 }
 
 .preloader-panel {
-  flex: 1;
-  background: linear-gradient(135deg, rgba(201, 155, 163, 0.85), rgba(224, 38, 42, 0.98));
+  flex: 0 0 50%;
+  width: 50%;
+  background: linear-gradient(135deg, #b50022 0%, #e0262a 45%, #ff3b30 100%);
   transition: transform 0.6s ease;
 }
 
 .preloader-panel.right {
-  background: linear-gradient(225deg, #f39200ef), #F39200);
+  background: linear-gradient(225deg, #b50022 0%, #e0262a 45%, #ff3b30 100%);
 }
 
 #preloader.open .preloader-panel.left {
@@ -666,7 +677,7 @@ main {
 .preloader-content {
   text-align: center;
   color: #fff;
-  z-index: 1;
+  z-index: 2;
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
@@ -676,7 +687,7 @@ main {
 }
 
 .preloader-logo {
-  width: 400px;
+  width: 220px;
   margin: 0 auto 16px;
 }
 
@@ -721,22 +732,39 @@ main {
   .benefit-grid {
     grid-template-columns: 1fr;
   }
-}
 
-@media (max-width: 900px) {
   .category-card {
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    gap: 16px;
   }
 
   .category-content {
-    max-width: 100%;
+    order: 1;
+    grid-column: auto;
+    grid-row: auto;
   }
 
   .category-visual {
+    order: 2;
     width: 100%;
     justify-content: center;
+    align-items: center;
     min-height: 200px;
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .category-btn {
+    order: 3;
+    width: 100%;
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .category-btn.btn {
+    width: 100%;
   }
 
   .category-visual::before {
