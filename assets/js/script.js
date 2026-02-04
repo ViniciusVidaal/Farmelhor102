@@ -10,8 +10,7 @@ const hidePreloader = () => {
 };
 
 window.addEventListener("load", () => {
-  const isMobile = window.matchMedia("(max-width: 768px)").matches;
-  const delay = isMobile ? 1200 : 200;
+  const delay = 200;
   setTimeout(hidePreloader, delay);
 });
 

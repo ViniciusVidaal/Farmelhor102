@@ -71,6 +71,8 @@ h3 {
   position: relative;
   overflow: hidden;
   will-change: transform;
+  background: var(--primary);
+  color: #fff;
 }
 
 .btn-primary {
@@ -346,14 +348,16 @@ main {
 }
 
 .banner-swiper .swiper-slide {
-  height: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
 }
 
 .banner-swiper img {
-  width: 110%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .banner-swiper .swiper-pagination-bullet {
@@ -620,6 +624,16 @@ main {
   background: radial-gradient(circle at 30% 30%, #feda75, #d62976, #962fbf, #4f5bd5);
 }
 
+.floating-btn.ifood {
+  background: #ea1d2c;
+}
+
+.floating-btn.ifood .ifood-logo {
+  width: 34px;
+  height: auto;
+  filter: brightness(0) invert(1);
+}
+
 @keyframes pulse {
   0% {
     box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45);
@@ -635,7 +649,7 @@ main {
 #preloader {
   position: fixed;
   inset: 0;
-  background: transparent;
+  background: linear-gradient(135deg, #b50022 0%, #e0262a 45%, #ff3b30 100%);
   display: grid;
   place-items: center;
   z-index: 2000;
@@ -691,14 +705,10 @@ main {
   margin: 0 auto 16px;
 }
 
-.preloader-welcome {
-  font-weight: 600;
-  letter-spacing: 0.04em;
-}
-
 .preloader-name {
   font-weight: 800;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  letter-spacing: 0.04em;
 }
 
 @media (max-width: 1024px) {
@@ -761,6 +771,7 @@ main {
     width: 100%;
     grid-column: auto;
     grid-row: auto;
+    margin-top: auto;
   }
 
   .category-btn.btn {
@@ -776,10 +787,6 @@ main {
 @media (max-width: 768px) {
   section {
     padding: 70px 0;
-  }
-
-  .banner-swiper .swiper-slide {
-    height: 320px;
   }
 
   .hero-actions {
